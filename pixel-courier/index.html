@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Pac-Man Pro Edition</title>
+    <style>
+        body {
+            background-color: #050508;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        #stats {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #ffeb3b;
+            text-shadow: 0 0 12px rgba(255, 235, 59, 0.6);
+        }
+        canvas {
+            border: 4px solid #1976d2;
+            box-shadow: 0 0 30px rgba(25, 118, 210, 0.7);
+            background-color: #000;
+            border-radius: 8px;
+        }
+        .controls {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(3, 60px);
+            grid-gap: 12px;
+        }
+        .btn {
+            width: 60px;
+            height: 60px;
+            background-color: #111;
+            color: #ffeb3b;
+            border: 2px solid #1976d2;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.1s ease;
+        }
+        .btn:active {
+            background-color: #1976d2;
+            color: #fff;
+            transform: scale(0.95);
+        }
+        .empty { visibility: hidden; }
+    </style>
+</head>
+<body>
+
+    <div id="stats">
+        <span>SCORE: <b id="score">0</b></span> &nbsp;|&nbsp; 
+        <span>LIVES: <b id="lives">3</b></span>
+    </div>
+
+    <canvas id="gameCanvas" width="450" height="450"></canvas>
+
+    <div class="controls">
+        <div class="empty"></div>
+        <button class="btn" onclick="setNextDir(0, -1)">▲</button>
+        <div class="empty"></div>
+        <button class="btn" onclick="setNextDir(-1, 0)">◄</button>
+        <button class="btn" onclick="setNextDir(0, 1)">▼</button>
+        <button class="btn" onclick="setNextDir(1, 0)">►</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
